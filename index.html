@@ -4,44 +4,69 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vizitka Markéta Vrátná</title>
+  <!-- Import Playfair Display pro obě strany -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
   <style>
+    @keyframes move-bg {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
     body {
+      margin: 0;
+      height: 100vh;
       display: flex;
-      gap: 20px;
-      padding: 40px;
-      background: #f0f0f0;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(45deg, #F8D1E3, #3355FF, #F8D1E3);
+      background-size: 600% 600%;
+      animation: move-bg 15s ease infinite;
       font-family: 'Segoe UI', Tahoma, sans-serif;
     }
     .card {
       width: 360px;
       height: 210px;
       border-radius: 12px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      transition: transform 0.3s ease;
+      cursor: pointer;
     }
+    .card:hover { transform: scale(1.08); }
     /* PŘEDNÍ STRANA */
     .front {
-      background: #F8D1E3; /* pastel pink */
-      color: #3355FF;       /* vibrant blue */
+      background: #F8D1E3;
+      color: #3355FF;
       align-items: center;
       justify-content: center;
       display: flex;
-      padding: 20px;
+      flex-direction: column;
+      padding: 16px;
       box-sizing: border-box;
     }
     .front h1 {
-      font-size: 3.5rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem; /* zvětšené */
       font-weight: 900;
-      text-transform: uppercase;
+      text-transform: lowercase;
       margin: 0;
+      line-height: 1;
+    }
+    .front p.subtitle {
+      margin-top: 4px;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      font-size: 0.9rem;
+      font-style: italic;
+      opacity: 0.7;
+      text-transform: capitalize;
     }
     /* ZADNÍ STRANA */
     .back {
-      background: #3355FF; /* vibrant blue */
-      color: #F8D1E3;       /* pastel pink */
-      padding: 20px;
+      background: #3355FF;
+      color: #F8D1E3;
+      padding: 16px;
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
@@ -52,48 +77,54 @@
     }
     .info h1 {
       margin: 0;
-      font-size: 1.6rem;
-      font-weight: 700;
-      text-transform: uppercase;
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      text-transform: lowercase;
+      line-height: 1;
     }
     .info p.role {
-      margin: 4px 0 12px;
+      margin: 4px 0 8px;
+      font-family: 'Playfair Display', serif;
       font-size: 1rem;
       font-style: italic;
       opacity: 0.85;
+      line-height: 1.1;
+      text-transform: capitalize;
     }
     .info p.bio {
       margin: 0;
-      font-size: 0.9rem;
-      line-height: 1.4;
+      font-size: 0.8rem;
+      line-height: 1.2;
     }
     .contact {
-      margin-top: 12px;
+      margin-top: 8px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      font-size: 0.9rem;
+      gap: 4px;
+      font-size: 0.85rem;
     }
     .contact p {
       margin: 0;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
+      line-height: 1.2;
     }
-    /* Ikonky mohou být Unicode: 📧, 📞, 📍 */
   </style>
 </head>
 <body>
   <!-- Přední strana -->
   <div class="card front">
-    <h1>Vrátná</h1>
+    <h1>vrátná</h1>
+    <p class="subtitle">web designer</p>
   </div>
 
   <!-- Zadní strana -->
   <div class="card back">
     <div class="info">
-      <h1>Markéta Vrátná</h1>
-      <p class="role">Web Designer</p>
+      <h1>markéta vrátná</h1>
+      <p class="role">web designer</p>
       <p class="bio">Tvořím moderní a responzivní weby se smyslem pro detail a uživatelský komfort.</p>
     </div>
     <div class="contact">
