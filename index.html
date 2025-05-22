@@ -9,89 +9,79 @@
       display: flex;
       gap: 20px;
       padding: 40px;
-      background: #f0f0f0;
+      background: #f5f5f5;
       font-family: 'Segoe UI', Tahoma, sans-serif;
     }
     .card {
-      width: 350px;
-      height: 200px;
+      width: 360px;
+      height: 210px;
       border-radius: 12px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
       overflow: hidden;
       position: relative;
     }
     .front {
       background: #800020; /* burgundy */
-      color: #f3e5ab;    /* light gold */
+      color: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 4rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: -2px;
       position: relative;
     }
+    .front h1 {
+      font-size: 3.5rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin: 0;
+      z-index: 2;
+    }
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.6;
+    }
+    .shape.circle1 { width: 80px; height: 80px; background: #f3e5ab; top: 20px; left: 30px; }
+    .shape.circle2 { width: 60px; height: 60px; background: #ffc0cb; top: 100px; right: 40px; }
+    .shape.circle3 { width: 100px; height: 100px; border: 4px solid #f3e5ab; bottom: 10px; left: 80px; }
+    .shape.dot { width: 20px; height: 20px; background: #f3e5ab; bottom: 40px; right: 110px; }
+
     .back {
       background: #f3e5ab; /* light gold */
       color: #800020;
-      padding: 20px;
+      padding: 24px;
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      position: relative;
     }
-    .front .circle, .back .circle {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.8;
+    .back .shape {
+      opacity: 0.4;
     }
-    .front .circle:nth-child(1) {
-      width: 60px; height: 60px;
-      background: #f3e5ab;
-      top: 20px; left: 40px;
-    }
-    .front .circle:nth-child(2) {
-      width: 80px; height: 80px;
-      background: rgba(243,229,171,0.5);
-      bottom: 10px; right: 30px;
-    }
-    .back .circles {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      pointer-events: none;
-    }
-    .back .circle.small {
-      width: 30px; height: 30px;
-      border: 2px solid #800020;
-      top: 20px; left: 260px;
-    }
-    .back .circle.medium {
-      width: 50px; height: 50px;
-      background: #800020;
-      top: 80px; left: 40px;
-    }
-    .back .circle.large {
-      width: 70px; height: 70px;
-      border: 2px solid #800020;
-      bottom: 30px; right: 20px;
-    }
+    .back .circleA { width: 50px; height: 50px; background: #800020; top: 10px; right: 20px; }
+    .back .circleB { width: 40px; height: 40px; border: 3px solid #800020; bottom: 20px; left: 30px; }
+    .back .circleC { width: 70px; height: 70px; background: #ffc0cb; top: 80px; left: 120px; }
+    .back .dotA    { width: 15px; height: 15px; background: #800020; bottom: 80px; right: 60px; }
+    .back .stripe  { position: absolute; width: 4px; height: 120px; background: #800020; top: 50px; left: 50%; transform: translateX(-50%); }
+
     .info {
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
     .info h1 {
       margin: 0;
-      font-size: 1.5rem;
+      font-size: 1.6rem;
+      font-weight: 700;
     }
     .info p {
       margin: 6px 0;
       font-size: 0.9rem;
-      opacity: 0.8;
+      line-height: 1.4;
     }
-    .info .contact {
-      display: flex;
-      gap: 12px;
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 12px;
       font-size: 0.85rem;
     }
   </style>
@@ -99,27 +89,32 @@
 <body>
   <!-- Přední strana -->
   <div class="card front">
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div>K
-i</div>
+    <div class="shape circle1"></div>
+    <div class="shape circle2"></div>
+    <div class="shape circle3"></div>
+    <div class="shape dot"></div>
+    <h1>Vrátná</h1>
   </div>
 
   <!-- Zadní strana -->
   <div class="card back">
-    <div class="circles">
-      <div class="circle small"></div>
-      <div class="circle medium"></div>
-      <div class="circle large"></div>
-    </div>
+    <div class="shape circleA"></div>
+    <div class="shape circleB"></div>
+    <div class="shape circleC"></div>
+    <div class="shape dotA"></div>
+    <div class="shape stripe"></div>
+
     <div class="info">
       <h1>Markéta Vrátná</h1>
-      <p>Digital Experience Alchemist</p>
+      <p>Web Designer & Visual Storyteller</p>
+      <p>Vytvářím interaktivní a estetické webové zážitky.</p>
     </div>
-    <div class="info contact">
-      <p>www.marketavrtnadesign.cz</p>
-      <p>hello@marketavrtnadesign.cz</p>
-      <p>+420 777 123 456</p>
+
+    <div class="contact">
+      <p>📞 +420 602 987 654</p>
+      <p>✉️ marketa.vratna@example.com</p>
+      <p>🌐 www.marketavratna.cz</p>
+      <p>🏢 Ulice 123, 110 00 Praha 1</p>
     </div>
   </div>
 </body>
