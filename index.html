@@ -18,57 +18,36 @@
       border-radius: 12px;
       box-shadow: 0 8px 16px rgba(0,0,0,0.1);
       overflow: hidden;
-      position: relative;
+      display: flex;
+      flex-direction: column;
     }
     /* PŘEDNÍ STRANA */
     .front {
       background: #F8D1E3; /* pastel pink */
-      color: #E65A3E;       /* vibrant orange */
-      display: flex;
+      color: #3355FF;       /* vibrant blue */
       align-items: center;
       justify-content: center;
-      position: relative;
+      display: flex;
+      padding: 20px;
+      box-sizing: border-box;
     }
     .front h1 {
       font-size: 3.5rem;
       font-weight: 900;
       text-transform: uppercase;
       margin: 0;
-      z-index: 2;
     }
-    .front .shape {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.4;
-      z-index: 1;
-    }
-    .front .circle1 { width: 100px; height: 100px; background: #E65A3E; top: 10px; left: -30px; }
-    .front .circle2 { width: 80px; height: 80px; background: #FFFFFF; bottom: -20px; right: 40px; }
-    .front .arc { width: 180px; height: 90px; border: 6px solid #E65A3E; border-top: none; border-left: none; border-radius: 0 0 0 90px; bottom: 20px; left: 40px; }
-
     /* ZADNÍ STRANA */
     .back {
-      background: #E65A3E; /* vibrant orange */
+      background: #3355FF; /* vibrant blue */
       color: #F8D1E3;       /* pastel pink */
-      padding: 24px;
+      padding: 20px;
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      position: relative;
     }
-    .back .shape {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.3;
-    }
-    .back .circleA { width: 60px; height: 60px; background: #F8D1E3; top: 10px; right: 20px; }
-    .back .circleB { width: 40px; height: 40px; background: #FFFFFF; bottom: 20px; left: 30px; }
-    .back .arcA { width: 120px; height: 60px; border: 4px solid #F8D1E3; border-bottom: none; border-right: none; border-radius: 120px 0 0 0; top: 80px; left: 100px; }
-
     .info {
-      position: relative;
-      z-index: 2;
       text-align: left;
     }
     .info h1 {
@@ -83,42 +62,44 @@
       font-style: italic;
       opacity: 0.85;
     }
-    .contact {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6px 12px;
-      font-size: 0.85rem;
+    .info p.bio {
+      margin: 0;
+      font-size: 0.9rem;
       line-height: 1.4;
     }
-    .contact p { margin: 0; }
+    .contact {
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.9rem;
+    }
+    .contact p {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    /* Ikonky mohou být Unicode: 📧, 📞, 📍 */
   </style>
 </head>
 <body>
   <!-- Přední strana -->
   <div class="card front">
-    <div class="shape circle1"></div>
-    <div class="shape circle2"></div>
-    <div class="shape arc"></div>
     <h1>Vrátná</h1>
   </div>
 
   <!-- Zadní strana -->
   <div class="card back">
-    <div class="shape circleA"></div>
-    <div class="shape circleB"></div>
-    <div class="shape arcA"></div>
-
     <div class="info">
       <h1>Markéta Vrátná</h1>
       <p class="role">Web Designer</p>
-      <p>Tvořím moderní a responzivní weby se smyslem pro detail.</p>
+      <p class="bio">Tvořím moderní a responzivní weby se smyslem pro detail a uživatelský komfort.</p>
     </div>
-
     <div class="contact">
-      <p>📞 +420 601 234 567</p>
-      <p>✉️ marketa.vratna@webstudio.cz</p>
-      <p>🌐 www.vratnadesign.cz</p>
-      <p>🏢 Masarykova 45, 602 00 Brno</p>
+      <p>📧 marketa.vratna@webstudio.cz</p>
+      <p>📞 +420 601 234 567</p>
+      <p>📍 Masarykova 45, 602 00 Brno</p>
     </div>
   </div>
 </body>
